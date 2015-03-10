@@ -1,0 +1,100 @@
+@import 'normalize.styl'
+@import 'fonts.styl'
+@import 'nib'
+
+oscuro = #2E363F
+color-btn = #20A6BE
+color-btn-hover = #1DB639
+vendor-prefixes = webkit moz o ms official
+
+html
+	font-size 120%
+	font-family: 'Arvo', serif;
+
+a
+	text-decoration none
+	
+h1
+h2
+h3
+h4
+	margin 0
+	padding 0
+
+.header
+	background oscuro
+	padding 1em
+		
+.header__content
+	display flex
+	justify-content space-around
+	align-items center
+	color white
+	
+	.header__edit
+		.header__icons
+			color white
+			font-size 1.5rem
+			
+	.header__reload
+		.header__icons
+			color white
+			font-size 1.5rem
+			
+.search-city
+	.search-city__form
+		display flex
+		
+		input[type=text]
+			width 100%
+			padding 0.5em
+			
+			
+		input[type=submit]
+			flex-basis 200px
+			background-color color-btn
+			color white
+			border 0px
+			transition 0.3s
+			
+			&:hover
+				background-color color-btn-hover
+				
+			
+.card
+	padding 1em
+	border 2px solid black
+	margin 1em
+	
+	.card__header
+		text-align center
+		
+		.card__temperature
+			font-size 4rem
+			
+			&:after
+				content '˚C'
+			
+	.card__info
+		font-family: 'Merriweather Sans', sans-serif;
+		text-align center
+		
+		.card__temperature-max:after
+		.card__temperature-min:after
+			content '˚C '
+			
+		.card__temperature-max:before
+			content 'Max: '
+			
+		.card__temperature-min:before
+			content '/ Min: '
+		
+		.time
+			display block
+			font-size 2rem
+			
+		.state
+			display block
+			
+			
+			
