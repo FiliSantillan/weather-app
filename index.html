@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/styles.css">
 
@@ -20,9 +21,6 @@
 			<div class="header__title">
 				<h1>Weather App</h1>
 			</div>
-			<div class="header__reload">
-				<a href="#" class="header__icons icon-reload"></a>
-			</div>
 		</div>
 	</header>
 	<section class="search-city">
@@ -31,42 +29,43 @@
 			<input type="submit" value="Mostrar">
 		</form>
 	</section>
+	<div id="loader" class="loader">Geolocalizando, por favor espere ...</div>
 	<section class="my-city">
-		<div id="template--city">
+		<template id="template--city">
 			<div class="card">
 				<header class="card__header">
-					<h2 class="card__country">México</h2>
-					<h3 data-temp="current" class="card__temperature">27</h3>
+					<h2 data-country class="card__country"></h2>
+					<span data-zone class="zone"></span>
+					<h3 data-temp="current" class="card__temperature"></h3>
+					<span data-temp="max" class="card__temperature-max"></span>
+					<span data-temp="min" class="card__temperature-min"></span>
 					<img data-image src="" alt="" class="card__image">
 				</header>
 				<div class="card__info">
+					<span data-state class="state"></span>
 					<strong class="time">02:00pm</strong>
-					<span data-temp="max" class="card__temperature-max">30</span>
-					<span data-temp="min" class="card__temperature-min">10</span>
-					<span class="state">Nublado</span>
-					<span class="zone">Huehuetoca</span>
 				</div>
 			</div>
-		</div>
+		</template>
 	</section>
 	<section class="cities">
-		<div id="template--cities">
-			<div class="card">
-				<header class="card__header">
-					<h2 class="card__country">Bogota</h2>
-					<h3 data-temp="current" class="card__temperature">25</h3>
-					<img data-image src="" alt="" class="card__image">
-				</header>
-				<div class="card__info">
-					<strong class="time">03:00pm</strong>
-					<span data-temp="max" class="card__temperature-max">20</span>
-					<span data-temp="min" class="card__temperature-min">5</span>
-					<span class="state">Calido</span>
-					<span class="zone">Kali</span>
-				</div>
+	<!-- 	<div id="template--cities">
+		<div class="card">
+			<header class="card__header">
+				<h2 class="card__country">Bogota</h2>
+				<h3 data-temp="current" class="card__temperature">25</h3>
+				<img data-image src="" alt="" class="card__image">
+			</header>
+			<div class="card__info">
+				<strong class="time">03:00pm</strong>
+				<span data-temp="max" class="card__temperature-max">20</span>
+				<span data-temp="min" class="card__temperature-min">5</span>
+				<span class="state">Calido</span>
+				<span class="zone">Kali</span>
 			</div>
 		</div>
-	</section>
+	</div>
+		</section> -->
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/script.js"></script>

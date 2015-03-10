@@ -2,14 +2,22 @@
 @import 'fonts.styl'
 @import 'nib'
 
+/* Colors */
+azul-a = #5EB9C9
+azul-b = #20A6BE
+azul-c = #17798B
+azul-d = #0B373E
+azul-e = #1D393E
+fondo = #BDC2CF
 oscuro = #2E363F
-color-btn = #20A6BE
-color-btn-hover = #1DB639
+
+/* Prefixes */
 vendor-prefixes = webkit moz o ms official
 
 html
 	font-size 120%
 	font-family: 'Arvo', serif;
+	background-color fondo
 
 a
 	text-decoration none
@@ -36,34 +44,36 @@ h4
 			color white
 			font-size 1.5rem
 			
-	.header__reload
-		.header__icons
-			color white
-			font-size 1.5rem
+			&:hover
+				color azul-b
 			
 .search-city
+	display none
 	.search-city__form
 		display flex
 		
 		input[type=text]
 			width 100%
-			padding 0.5em
-			
+			padding 0.5em			
 			
 		input[type=submit]
 			flex-basis 200px
-			background-color color-btn
+			background-color azul-b
 			color white
 			border 0px
 			transition 0.3s
 			
 			&:hover
-				background-color color-btn-hover
+				background-color azul-c
+				
+.loader
+	text-align center
+	padding 1em
+	font-size 1rem
 				
 			
 .card
 	padding 1em
-	border 2px solid black
 	margin 1em
 	
 	.card__header
@@ -71,30 +81,38 @@ h4
 		
 		.card__temperature
 			font-size 4rem
+			color azul-b
 			
-			&:after
-				content '˚C'
+		.card__temperature-min
+			display block
 			
-	.card__info
-		font-family: 'Merriweather Sans', sans-serif;
-		text-align center
-		
+		.card__temperature-max
+		.card__temperature-min
+			color azul-c
+				
 		.card__temperature-max:after
 		.card__temperature-min:after
+		.card__temperature:after
 			content '˚C '
 			
 		.card__temperature-max:before
 			content 'Max: '
 			
 		.card__temperature-min:before
-			content '/ Min: '
+			content 'Min: '
+				
+		.card__image
+			width 8em
+			
+	.card__info
+		font-family: 'Merriweather Sans', sans-serif;
+		text-align center
+		
 		
 		.time
 			display block
 			font-size 2rem
-			
-		.state
-			display block
+			color azul-e
 			
 			
 			
