@@ -3,6 +3,14 @@
   var WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + WEATHER_KEY + "&";
   var IMG_WEATHER = "http://openweathermap.org/img/w/"; 
 
+
+  //Time
+  var today = new Date();
+  var Hours = today.getHours();
+  var Minutes = today.getMinutes();
+  var timeNow = Hours + ":" + Minutes;
+
+  //City
   var cityWeather = {};
   cityWeather.country;
   cityWeather.zone;
@@ -13,15 +21,18 @@
   cityWeather.state;
   cityWeather.main;
 
+  var $body = $("body");
+  var $loader = $('.loader');
+
   var show_form = $(".icon-edit");
-  var button_reload = $("icon-reload");
+  var nameNewCity = $('[data-input="cityAdd"]');
+  var buttonAdd = $('[data-button="add"]');
+
+  $( buttonAdd ).on("click", addNewCity);
 
   show_form.click(function() {
     $(".search-city").slideToggle();
   });
-
-  button_reload.on("click", reloadWeather);
-
 
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(getCoords, errorFound);
@@ -56,7 +67,6 @@
     cityWeather.main = data.weather[0].main;
 
     renderTemplate();
-    console.log(data);
   };
 
   function activateTemplate(id) {
@@ -68,19 +78,36 @@
     var clone = activateTemplate('#template--city');
 
     clone.querySelector('[data-country]').innerHTML = cityWeather.country;
+    clone.querySelector('[data-zone]').innerHTML = cityWeather.zone;
     clone.querySelector('[data-temp="current"]').innerHTML = cityWeather.temp.toFixed(1);
-    clone.querySelector('[data-image]').src = cityWeather.image;
-
-    //clone.querySelector('[data-time]').innerHTML = ;
-
     clone.querySelector('[data-temp="max"]').innerHTML = cityWeather.temp_max.toFixed(1);
     clone.querySelector('[data-temp="min"]').innerHTML = cityWeather.temp_min.toFixed(1);
-    clone.querySelector('[data-state]').innerHTML = cityWeather.state;
-    clone.querySelector('[data-zone]').innerHTML = cityWeather.zone;
+    clone.querySelector('[data-image]').src = cityWeather.image;
 
-    $('#loader').hide();
-    $('body').append(clone);
+    clone.querySelector('[data-state]').innerHTML = cityWeather.state;
+    clone.querySelector('[data-time]').innerHTML = timeNow ;
+
+    $( $loader ).hide();
+    $( $body ).append(clone);
   };
+
+  function addNewCity(event) {
+    event.preventDefault();
+    $.getJSON(WEATHER_URL + "q=" + nameNewCity.val(), getWeatherNewCity);
+  }
+
+  function getWeatherNewCity(data){
+    cityWeather.country = data.sys.country;
+    cityWeather.zone = data.name;
+    cityWeather.temp = data.main.temp - 273.15;
+    cityWeather.temp_max = data.main.temp_max - 273.15;
+    cityWeather.temp_min = data.main.temp_min - 273.15;
+    cityWeather.image = 'svg/' + data.weather[0].icon + '.svg';
+    cityWeather.state = data.weather[0].description;
+    cityWeather.main = data.weather[0].main;
+
+    renderTemplate();
+  }
 
   function reloadWeather() {
     renderTemplate();

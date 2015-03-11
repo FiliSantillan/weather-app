@@ -32,20 +32,26 @@ h4
 .header
 	background oscuro
 	padding 1em
+	
+.wrap-center
+	margin 0 auto
+	max-width 1080px
 		
 .header__content
 	display flex
-	justify-content space-around
+	justify-content center
 	align-items center
 	color white
 	
 	.header__edit
+		margin-right 0.5em
 		.header__icons
 			color white
 			font-size 1.5rem
 			
 			&:hover
 				color azul-b
+				
 			
 .search-city
 	display none
@@ -113,6 +119,60 @@ h4
 			display block
 			font-size 2rem
 			color azul-e
+			
+
+@media all and (min-width 768px)
+	.header__content
+		justify-content flex-start
+		
+	.card
+		padding 1em
+		margin 1em
+		
+		.card__header
+			
+			.card_country
+				text-align center
+				font-size 3rem
+				
+			.card__zone
+				display block
+				font-size 2rem
+				text-align center
+				
+			
+			.card__temperature
+				display inline-block
+				font-size 5rem
+				
+			.card__temperatures
+				display inline-block
+				margin-left 0.5em
+					
+			.card__image
+				width 13em
+				display block
+				margin 0 auto
+				
+		.card__info
+			font-family: 'Merriweather Sans', sans-serif;
+			text-align center
+			
+			
+			.time
+				display block
+				font-size 2rem
+				color azul-e
+		
+@media all and (min-width 1080px)
+	.header__content
+		.header__edit
+			display none
+			
+	.search-city
+		display block
+		margin-top 0.5em
+		
 			
 			
 			
