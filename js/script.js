@@ -4,12 +4,6 @@
   var IMG_WEATHER = "http://openweathermap.org/img/w/"; 
 
 
-  //Time
-  var today = new Date();
-  var Hours = today.getHours();
-  var Minutes = today.getMinutes();
-  var timeNow = Hours + ":" + Minutes;
-
   //City
   var cityWeather = {};
   cityWeather.country;
@@ -21,7 +15,7 @@
   cityWeather.state;
   cityWeather.main;
 
-  var $body = $("body");
+  var $body = $(".citiesList");
   var $loader = $('.loader');
 
   var show_form = $(".icon-edit");
@@ -43,7 +37,7 @@
   };
 
   function errorFound(error) {
-    alert("Un error ocurrio: " + error.code);
+    alert("Un error ocurrio: " + error.code + " " + error);
     //0: Error desconocido
     //1: Permiso denegado
     //2: Posición no está disponible
@@ -85,7 +79,6 @@
     clone.querySelector('[data-image]').src = cityWeather.image;
 
     clone.querySelector('[data-state]').innerHTML = cityWeather.state;
-    clone.querySelector('[data-time]').innerHTML = timeNow ;
 
     $( $loader ).hide();
     $( $body ).append(clone);

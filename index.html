@@ -1,74 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+ 	<title>FiliWeather</title>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/styles.css">
 
 	<!-- Google Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Raleway:400,700" rel="stylesheet">
 
-	<title>Weather App</title>
 </head>
 <body>
-	<header class="header">
-		<div class="header__content wrap-center">
-			<div class="header__edit">
-				<a href="#" class="header__icons icon-edit"></a>
-			</div>
-			<div class="header__title">
-				<h1>Weather App</h1>
-			</div>
-		</div>
-	</header>
-	<section class="search-city wrap-center">
-		<form action="" class="search-city__form">
-			<input data-input="cityAdd" type="text" placeholder="Ciudad" required>
-			<input data-button="add" type="submit" value="Mostrar">
-		</form>
-	</section>
+  <header class="header">
+    <h1 class="header__title">FiliWeather</h1>
+  </header>
+
+  <form action="" class="search">
+    <input class="search__input" data-input="cityAdd" type="text" placeholder="Ciudad" required>
+    <input class="search__button" data-button="add" type="submit" value="Mostrar">
+  </form>
+
 	<div id="loader" class="loader">Geolocalizando, por favor espere ...</div>
-	<section class="my-city">
-		<template id="template--city">
-			<div class="card">
-				<header class="card__header">
-					<h2 data-country class="card__country"></h2>
-					<span data-zone class="card__zone"></span>
-					<h3 data-temp="current" class="card__temperature"></h3>
-					<div class="card__temperatures">
-						<span data-temp="max" class="card__temperature-max"></span>
-						<span data-temp="min" class="card__temperature-min"></span>
-					</div>
-					<img data-image src="" alt="" class="card__image">
-				</header>
-				<div class="card__info">
-					<span data-state class="state"></span>
-					<strong data-time class="time"></strong>
-				</div>
-			</div>
-		</template>
-	</section>
-	<section class="cities">
-	<!-- 	<div id="template--cities">
-		<div class="card">
-			<header class="card__header">
-				<h2 class="card__country">Bogota</h2>
-				<h3 data-temp="current" class="card__temperature">25</h3>
-				<img data-image src="" alt="" class="card__image">
-			</header>
-			<div class="card__info">
-				<strong class="time">03:00pm</strong>
-				<span data-temp="max" class="card__temperature-max">20</span>
-				<span data-temp="min" class="card__temperature-min">5</span>
-				<span class="state">Calido</span>
-				<span class="zone">Kali</span>
-			</div>
-		</div>
-	</div>
-		</section> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="js/script.js"></script>
-</body>
+
+  <template id="template--city">
+    <article class="city">
+
+      <header class="city__header">
+        <h2 data-zone class="city__zone"></h2>
+        <span data-country class="city__country"></span>
+      </header>
+
+      <section class="city__temperature">
+        <div class="city__degreesList">
+          <strong data-temp="current" class="city__degrees-current"></strong>
+          <span data-temp="min" class="city__degrees-min"></span>
+          <span data-temp="max" class="city__degrees-max"></span>
+        </div>
+        
+        <figure class="city__image">
+          <img data-image src="" alt="" class="city__img">
+          <figcaption class="city__state">
+            <span data-state class="city__text"></span> 
+          </figcaption>
+        </figure>
+      </section>
+
+    </article>
+  </template>
+
+	<section class="citiesList"></section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+
+  </body>
 </html>
