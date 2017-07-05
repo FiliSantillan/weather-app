@@ -190,3 +190,57 @@ input {
   font-size: 1.5rem;
   font-weight: 700;
 }
+
+.loader-wrap {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  display: inline-block; 
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  position: relative;
+}
+
+.loader:before,
+.loader:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  top: 0;
+  left: 0;
+  animation: 1s turn linear infinite;
+}
+
+.loader:before {
+  width: 80px;
+  height: 80px;
+  border-bottom-color: var(--color-blue);
+}
+
+.loader:after {
+  width: 80px;
+  height: 80px;
+  animation-direction: reverse;
+  border-bottom-color: var(--color-dark-gray);
+}
+
+@keyframes turn {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

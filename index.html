@@ -22,8 +22,10 @@
     <input class="search__input" data-input="cityAdd" type="text" placeholder="Ciudad" required>
     <input class="search__button" data-button="add" type="submit" value="Mostrar">
   </form>
-
-	<div id="loader" class="loader">Geolocalizando, por favor espere ...</div>
+  
+  <div class="loader-wrap" id="loader-wrap">
+    <div class="loader"></div>  
+  </div>
 
   <template id="template--city">
     <article class="city">

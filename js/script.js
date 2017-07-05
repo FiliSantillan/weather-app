@@ -16,7 +16,7 @@
   cityWeather.main;
 
   var $body = $(".citiesList");
-  var $loader = $('.loader');
+  var $loader = $('#loader-wrap');
 
   var show_form = $(".icon-edit");
   var nameNewCity = $('[data-input="cityAdd"]');
