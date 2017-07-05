@@ -34,3 +34,7 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# VIM #
+#######################
+*.swp
